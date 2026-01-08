@@ -1,0 +1,1 @@
+{"root":["./vite.config.ts","./src/app.tsx","./src/main.tsx","./src/components/details.tsx","./src/components/getdata.tsx","./src/components/measurements.tsx","./src/components/personaldetails.tsx","./src/store/useformstore.ts","./src/utils/schema.ts"],"errors":true,"version":"5.9.3"}

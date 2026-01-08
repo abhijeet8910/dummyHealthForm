@@ -6,7 +6,10 @@
   ],
   
     "compilerOptions": {
-      "skipLibCheck": true
+      "types": [
+        "vite/client",
+        "node"
+      ]
     }
   
   
