@@ -39,8 +39,8 @@ const onSubmit = (data: personalDetailsSchemaType) => {
 
 
   return (
-    <div className="max-w-md mx-auto p-4">
-      <h1 className="font-bold text-3xl mb-10 text-center">Personal Details</h1>
+    <div className="max-w-md m-auto p-4 border-2 rounded-2xl">
+      <h1 className="font-bold text-3xl mb-10 text-center">Step 2:-Personal Details</h1>
 
       <form onSubmit={handleSubmit(onSubmit, (errors) => console.log(errors))}
       className="flex flex-col gap-4">
@@ -129,7 +129,7 @@ const onSubmit = (data: personalDetailsSchemaType) => {
         </div>
 
         <button type="submit" className="bg-blue-500 text-white p-2 hover:bg-blue-300">
-            Submit
+            Next
         </button>
       </form>
     </div>

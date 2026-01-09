@@ -38,8 +38,8 @@ const Details = () => {
     };
 
     return (
-        <div className='max-w-md mx-auto p-4'>
-            <h1 className="text-center text-4xl font-bold">Details</h1>
+        <div className='max-w-md m-auto p-4 border-2 rounded-2xl'>
+            <h1 className="text-center text-4xl font-bold">Step1:-Details</h1>
 
             {/* Attach handleSubmit to the form */}
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
@@ -108,7 +108,7 @@ const Details = () => {
                 </div>
 
                 <button type="submit" className="bg-blue-500 text-white p-2 rounded hover:bg-blue-300">
-                    Submit
+                   Next
                 </button>
             </form>
         </div>

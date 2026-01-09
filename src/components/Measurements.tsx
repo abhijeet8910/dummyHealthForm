@@ -70,7 +70,7 @@ const Measurements = () => {
     navigate('/getData');
   }
   return (
-    <div className="max-w-md m-auto p-4">
+    <div className="max-w-md m-auto p-4 border-2 rounded-2xl">
       <h1 className="text-bold text-3xl text-center mb-5">Measurements</h1>
 
       <form onSubmit={handleSubmit(onSubmit)}
