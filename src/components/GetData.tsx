@@ -1,4 +1,5 @@
 import { useFormStore } from "../store/useFormStore"
+import { buttonBaseDesign } from "./Details";
 
 const GetData = () => {
     const storedDetails = useFormStore((state) => state.details);
@@ -12,7 +13,7 @@ const GetData = () => {
         //Todo - send data to backend
     }
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 max-w-sm m-auto">
       <h1 className="text-bold text-3xl text-center mb-5">Review Your Application</h1>
       
       <div className="border p-4 border-gray-300 rounded-xl">
@@ -43,7 +44,7 @@ const GetData = () => {
         <p>Temperature: {storedMeasurements.temperature}</p>
       </div>
 
-      <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={ handleSubmit}>Final Submit</button>
+      <button type="submit" className={`${buttonBaseDesign}`} onClick={ handleSubmit}>Final Submit</button>
     </div>
   )
 }

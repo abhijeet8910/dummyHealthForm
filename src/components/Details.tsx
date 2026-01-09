@@ -5,8 +5,14 @@ import * as z from 'zod';
 import { useNavigate } from 'react-router-dom';
 import { useFormStore } from '../store/useFormStore';
 
+
 //infer type
 type DetailForm = z.infer<typeof detailsSchema>;
+
+export const baseDesign = 'border p-2 w-full rounded-sm'
+
+export const buttonBaseDesign = "bg-blue-500 text-white p-2 rounded hover:bg-blue-300  inline-flex justify-center items-center mt-4"
+
 
 const Details = () => {
   const navigate = useNavigate();
@@ -38,8 +44,8 @@ const Details = () => {
     };
 
     return (
-        <div className='max-w-md m-auto p-4 border-2 rounded-2xl'>
-            <h1 className="text-center text-4xl font-bold">Step1:-Details</h1>
+        <div className='max-w-sm m-auto p-4 border-2 rounded-2xl mt-10'>
+            <h1 className="text-center text-4xl font-bold mb-10">Step1:-Details</h1>
 
             {/* Attach handleSubmit to the form */}
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
@@ -50,7 +56,7 @@ const Details = () => {
                         type="text" 
                         id="name"
                         placeholder="Enter your name"
-                        className="border p-2 w-full"
+                        className={`${baseDesign} ${errors.name ? 'border-red-400': 'border-blue-300'}`}
                     />
                     {/* Display Zod validation errors */}
                     {errors.name && (
@@ -66,7 +72,7 @@ const Details = () => {
                   type='email'
                   id='email'
                   placeholder='Enter your email'
-                  className='border p-2 w-full '
+                  className={`${baseDesign} ${errors['email'] ? 'border-red-400': 'border-blue-300'}` }
                    />
                    {/* error */}
                    {errors.email && (
@@ -83,7 +89,7 @@ const Details = () => {
                     type='number' 
                     id='age'
                     placeholder='Enter age'
-                    className='border p-2 w-full'/>
+                    className={`${baseDesign} ${errors.age ? 'border-red-400' : 'border-blue-300'}`}/>
                     {/* error */}
                     {errors.age && (
                         <p className='text-sm text-red-500'>{errors.age.message}</p>
@@ -96,7 +102,7 @@ const Details = () => {
                     <select 
                     {...register('gender')}
                     id='gender'
-                    className='border p-2 w-full'>
+                    className={`${baseDesign}`}>
                         <option value='male'>Male</option>
                         <option value='female'>Female</option>
                         <option value='other'>Other</option>
@@ -107,7 +113,7 @@ const Details = () => {
                     )}
                 </div>
 
-                <button type="submit" className="bg-blue-500 text-white p-2 rounded hover:bg-blue-300">
+                <button type="submit" className={`${buttonBaseDesign}`}>
                    Next
                 </button>
             </form>

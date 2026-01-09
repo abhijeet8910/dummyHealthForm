@@ -5,6 +5,8 @@ import * as z from 'zod'
 import { useNavigate } from "react-router-dom"
 import { useFormStore } from "../store/useFormStore"
 
+import { baseDesign, buttonBaseDesign } from "./Details"
+
 //infer types
 type personalDetailsSchemaType = z.infer<typeof  personalDetailsSchema>
 
@@ -39,8 +41,8 @@ const onSubmit = (data: personalDetailsSchemaType) => {
 
 
   return (
-    <div className="max-w-md m-auto p-4 border-2 rounded-2xl">
-      <h1 className="font-bold text-3xl mb-10 text-center">Step 2:-Personal Details</h1>
+    <div className="max-w-sm m-auto p-4 border-2 rounded-2xl mt-5">
+      <h1 className="font-bold text-3xl mb-10 text-center">Step2:-Personal Details</h1>
 
       <form onSubmit={handleSubmit(onSubmit, (errors) => console.log(errors))}
       className="flex flex-col gap-4">
@@ -52,7 +54,7 @@ const onSubmit = (data: personalDetailsSchemaType) => {
             type="text" 
             id="fatherName"
             placeholder="Enter your father name"
-            className="border p-2 w-full" />
+            className={`${baseDesign} ${errors.fatherName ? 'border-red-400' : 'border-blue-300'}`} />
 
             {/* errors */}
             {errors.fatherName && (
@@ -68,7 +70,7 @@ const onSubmit = (data: personalDetailsSchemaType) => {
             type="text" 
             id="motherName" 
             placeholder="Enter your mother name"
-            className="border p-2 w-full"/>
+            className={`${baseDesign} ${errors.motherName ? 'border-red-400' : 'border-blue-300'}`}/>
 
             {/* errors */}
             {errors.motherName && (
@@ -81,7 +83,7 @@ const onSubmit = (data: personalDetailsSchemaType) => {
             <input 
             {...register('address.city')}
             type="text" id="address" placeholder="Enter your city" 
-            className="border p-2 w-full"/>
+            className={`${baseDesign}`}/>
             {errors.address?.city && (
                 <p className="text-red-500 text-sm">{errors.address.city?.message}</p>
             )}
@@ -89,7 +91,7 @@ const onSubmit = (data: personalDetailsSchemaType) => {
           <input 
             {...register('address.state')}
             type="text" id="address" placeholder="Enter your state" 
-            className="border p-2 w-full"/>
+            className={`${baseDesign}`}/>
 
            {errors.address?.state && (
                 <p className="text-red-500 text-sm">{errors.address.state?.message}</p>
@@ -98,7 +100,7 @@ const onSubmit = (data: personalDetailsSchemaType) => {
             <input 
             {...register('address.country')}
             type="text" id="address" placeholder="Enter your country" 
-            className="border p-2 w-full"/>
+            className={`${baseDesign}`}/>
             {errors.address?.country && (
                 <p className="text-red-500 text-sm">{errors.address.country?.message}</p>
             )}
@@ -109,7 +111,7 @@ const onSubmit = (data: personalDetailsSchemaType) => {
             inputMode="numeric" 
             id="address" 
             placeholder="Enter your pincode" 
-            className="border p-2 w-full"/>
+            className={`${baseDesign}`}/>
 
 
             {/* errors */}
@@ -128,7 +130,7 @@ const onSubmit = (data: personalDetailsSchemaType) => {
 
         </div>
 
-        <button type="submit" className="bg-blue-500 text-white p-2 hover:bg-blue-300">
+        <button type="submit" className={`${buttonBaseDesign}`}>
             Next
         </button>
       </form>

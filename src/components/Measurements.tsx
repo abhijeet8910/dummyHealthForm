@@ -5,6 +5,8 @@ import * as z from "zod"
 import { useFormStore } from "../store/useFormStore"
 import { useNavigate } from "react-router-dom"
 
+import { baseDesign, buttonBaseDesign } from "./Details"
+
 
 //infer type
 type measurementType = z.infer<typeof measurementSchema>
@@ -70,7 +72,7 @@ const Measurements = () => {
     navigate('/getData');
   }
   return (
-    <div className="max-w-md m-auto p-4 border-2 rounded-2xl">
+    <div className="max-w-sm m-auto p-4 border-2 rounded-2xl mt-10">
       <h1 className="text-bold text-3xl text-center mb-5">Measurements</h1>
 
       <form onSubmit={handleSubmit(onSubmit)}
@@ -88,7 +90,7 @@ const Measurements = () => {
         type="number"
         id={field.name}
         placeholder={field.placeholder}
-        className="w-full p-2 border border-gray-300"
+        className={`${baseDesign} `}
         {...register(field.name, {
           setValueAs: (v) => (v === "" ? undefined : Number(v)),
       })}
@@ -110,7 +112,7 @@ const Measurements = () => {
 
 
         {/* sumbit button */}
-        <button type="submit" className="bg-blue-500 text-white p-2 hover:bg-blue-300">
+        <button type="submit" className={`${buttonBaseDesign}`}>
             Submit
         </button>
       </form>
